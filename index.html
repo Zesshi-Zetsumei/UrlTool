@@ -9,16 +9,20 @@
 </head>
 
 <body>
-    <a target="_top" href="https://api.live.bilibili.com/room/v1/Room/playUrl?cid=24329555&platform=h5&otype=json&quality=4">GO</a>
-
+    <a target="_blank"
+        href="https://api.live.bilibili.com/room/v1/Room/playUrl?cid=24329555&platform=h5&otype=json&quality=4">GO</a>
+    <button>Get</button>
     <script>
-        navigator.clipboard.readText().then((text) => {
-            const obj = JSON.parse(text)
-            if (typeof obj === "object") {
-                const url = encodeURI(obj.data.durl[0].url)
-                navigator.clipboard.writeText(url)
-            }
-        })
+        function getUrl() {
+            navigator.clipboard.readText().then((text) => {
+                const obj = JSON.parse(text)
+                if (typeof obj === "object") {
+                    const url = encodeURI(obj.data.durl[0].url)
+                    navigator.clipboard.writeText(url)
+                }
+            })
+        }
+        document.querySelector('button').addEventListener('click', getUrl)
     </script>
 </body>
 
