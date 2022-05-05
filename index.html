@@ -10,9 +10,7 @@
 
 <body>
     <script>
-        navigator.permissions.query({ name: 'clipboard-write' }).then((res) => {
-            alert(res.state)
-        })
+        navigator.clipboard.writeText('success')
     </script>
 </body>
 
